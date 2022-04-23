@@ -1,29 +1,31 @@
-import * as React from 'react';
-import { Button, View, Text } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from "react";
+import { Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { StatusBar } from "expo-status-bar";
 
+import { useFonts } from "expo-font";
+import { Meditate } from "./src/Screens/meditate";
+import { Sleep } from "./src/Screens/sleep";
 
-const Sleep=()=>{
-  return( 
-  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}><Text>Profile Screen</Text></View>
-      )
-}
+const Tab = createBottomTabNavigator();
 
-const m=()=>{ return( 
-  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}><Text>Prnicreen</Text></View>
-      )}
 export default function App() {
+  const [loaded] = useFonts({
+    InterBold: require("./assets/fonts/Inter-Bold.ttf"),
+    InterSemiBold: require("./assets/fonts/Inter-SemiBold.ttf"),
+    InterMedium: require("./assets/fonts/Inter-Medium.ttf"),
+    InterRegular: require("./assets/fonts/Inter-Regular.ttf"),
+    InterLight: require("./assets/fonts/Inter-Light.ttf"),
+  });
+
+  if (!loaded) {
+    return null;
+  }
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={Sleep} />
-        <Stack.Screen name="Profile" component={ProfileScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <View style={{ flex: 1 }}>
+      <Sleep />
+      <StatusBar style="dark" />
+    </View>
   );
 }
-
-

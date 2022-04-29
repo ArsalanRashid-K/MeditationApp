@@ -2,6 +2,7 @@ import * as React from "react";
 import { Text, View } from "react-native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import * as Haptics from "expo-haptics";
 
 import { Sleep } from "../Screens/sleep";
 import { Meditate } from "../Screens/meditate";
@@ -37,6 +38,11 @@ export const TabNav = () => {
         options={{
           tabBarColor: "#e76f51",
         }}
+        listeners={() => ({
+          tabPress: () => {
+            Haptics.selectionAsync();
+          },
+        })}
       />
       <Tab.Screen
         name="Sleep"
@@ -44,6 +50,11 @@ export const TabNav = () => {
         options={{
           tabBarColor: "#001219",
         }}
+        listeners={() => ({
+          tabPress: () => {
+            Haptics.selectionAsync();
+          },
+        })}
       />
     </Tab.Navigator>
   );

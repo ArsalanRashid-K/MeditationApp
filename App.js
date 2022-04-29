@@ -13,16 +13,9 @@ import { useFonts } from "expo-font";
 import { Meditate } from "./src/Screens/meditate";
 import { Sleep } from "./src/Screens/sleep";
 import { COLORS } from "./src/Utility/theme";
+import { TabNav } from "./src/Components/Tab";
 
-const Tab = createMaterialBottomTabNavigator();
 
-const a = () => {
-  return (
-    <View>
-      <Text>aoiewoigh</Text>
-    </View>
-  );
-};
 export default function App() {
   const [loaded] = useFonts({
     InterBold: require("./assets/fonts/Inter-Bold.ttf"),
@@ -38,30 +31,7 @@ export default function App() {
   return (
     <View style={{ flex: 1 }}>
       <NavigationContainer>
-        <Tab.Navigator
-          initialRouteName="Meditate"
-          backBehavior="initialRoute"
-          screenOptions={{
-            headerShown: false,
-          }}
-          shifting={true}
-        >
-          <Tab.Screen
-            name="Meditate"
-            component={Meditate}
-            options={{
-              tabBarColor: "#505cde",
-              tabBarIcon: ({ size, color }) => (
-                <Feather name="moon" size={24} color="green" />
-              ),
-            }}
-          />
-          <Tab.Screen
-            name="Sleep"
-            component={a}
-            options={{ tabBarColor: "#7ae6d5" }}
-          />
-        </Tab.Navigator>
+        <TabNav />
       </NavigationContainer>
     </View>
   );

@@ -10,6 +10,8 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@expo/vector-icons": "^12.0.0",
+    "@expo/vector-icons/Ionicons": "^12.0.0",
     "@react-navigation/bottom-tabs": "^6.3.1",
     "@react-navigation/material-bottom-tabs": "^5.x",
     "@react-navigation/native": "^6.0.10",

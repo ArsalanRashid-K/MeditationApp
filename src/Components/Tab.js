@@ -9,9 +9,18 @@ import { Meditate } from "../Screens/meditate";
 
 const Tab = createMaterialBottomTabNavigator();
 
+const a = () => {
+  return (
+    <View>
+      <Text>RBBSRGwr</Text>
+    </View>
+  );
+};
+
 export const TabNav = () => {
   return (
     <Tab.Navigator
+    
       initialRouteName="Meditate"
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color }) => {
@@ -21,22 +30,27 @@ export const TabNav = () => {
             iconName = focused
               ? "md-cloudy-night-sharp"
               : "md-cloudy-night-outline";
+          } else if (route.name === "About") {
+            iconName = focused
+              ? "rocket-sharp"
+              : "rocket-outline";
           } else if (route.name === "Meditate") {
             iconName = focused
-              ? "ios-color-filter-sharp"
-              : "color-filter-outline";
+              ? "snow-sharp"
+              : "snow-outline";
           }
 
           return <Ionicons name={iconName} size={25} color={color} />;
         },
       })}
+    
       shifting={true}
     >
       <Tab.Screen
         name="Meditate"
         component={Meditate}
         options={{
-          tabBarColor: "#e76f51",
+          tabBarColor: "#ffb3c1",
         }}
         listeners={() => ({
           tabPress: () => {
@@ -48,7 +62,21 @@ export const TabNav = () => {
         name="Sleep"
         component={Sleep}
         options={{
-          tabBarColor: "#001219",
+          
+          tabBarColor: "#133c55",
+        }}
+        listeners={() => ({
+          tabPress: () => {
+            Haptics.selectionAsync();
+          },
+        })}
+      />
+
+      <Tab.Screen
+        name="About"
+        component={a}
+        options={{
+          tabBarColor: "#ffb3c1",
         }}
         listeners={() => ({
           tabPress: () => {

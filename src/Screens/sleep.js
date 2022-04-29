@@ -8,38 +8,43 @@ import { CardView } from "../Components/CardView";
 import { COLORS } from "../Utility/theme";
 import { Data } from "../Utility/dummy";
 
+
+// console.log(r[randomColor]);
 export const Sleep = () => {
   return (
     <>
       <View
         style={{
-          flex: 1,
+          backgroundColor: COLORS.error,
+          // position: "absolute",
+          alignItems: "center",
+          alignContent: "center",
+          justifyContent: "center",
+          height: 80,
+          width: "100%",
+          // zIndex: -1,
         }}
       >
-        <View
-          style={{
-            alignContent: "center",
-            justifyContent: "flex-start",
-            flex: 1,
-            backgroundColor: COLORS.white,
-            padding: 10,
-          }}
-        >
-          <FlatList
-            data={Data}
-            renderItem={({ item }) => <CardView />}
-            keyExtractor={(item) => item.id}
-          />
-        </View>
-        <View
-          style={{
-            backgroundColor: COLORS.error,
-            height: 300,
-            zIndex: -1,
-          }}
-        >
-          <Text>sleep</Text>
-        </View>
+        <Text>sleep</Text>
+      </View>
+      <View
+        style={{
+          justifyContent: "center",
+          flex: 1,
+          // marginTop:10,
+          padding: 15, // this handles the size of the container .
+          paddingTop: 0,
+          paddingBottom: 0,
+          backgroundColor: "#1d3557", // background of sleep
+        }}
+      >
+        <FlatList
+          data={Data}
+          renderItem={({ item }) => <CardView a={item} />}
+          numColumns={2}
+          showsVerticalScrollIndicator={false}
+          keyExtractor={(item) => item.id}
+        />
       </View>
     </>
   );

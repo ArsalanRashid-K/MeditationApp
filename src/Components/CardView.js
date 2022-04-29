@@ -5,38 +5,49 @@ import { COLORS, SIZES, SHADOWS, FONTS } from "../Utility/theme";
 import { Text, View, Image } from "react-native";
 import { colors } from "../Utility/colors";
 
-export const CardView = () => {
+export const CardView = ({ a }) => {
+  console.log(a.bg);
+
   return (
     <View
       style={{
-        backgroundColor: COLORS.white,
-        borderRadius: SIZES.font,
-        margin: SIZES.base,
-        marginBottom: SIZES.extraLarge,
-        ...SHADOWS.dark,
+        flex: 1,
+        // width: 200,
+        // padding: 10,
+        paddingTop: 20,
+        height: 210,
+        backgroundColor: `${a.bg}`,
+        borderRadius: 10,
+        marginTop: 10,
+        margin: 5,
+        alignItems: "center",
+        marginBottom: 5,
       }}
     >
-      <View style={{ width: "100%", height: 250 }}>
-        {/* <Image
-          resizeMode="cover"
-          style={{
-            width: "100%",
-            height: "100%",
-            borderTopRightRadius: SIZES.font,
-            borderTopLeftRadius: SIZES.font,
-          }}
-          source={require("../../assets/img/rain.jpg")}
-        /> */}
-        <View
-          style={{
-            width: "100%",
-            paddingHorizontal: SIZES.font,
-            justifyContent: "space-between",
-          }}
-        >
-          <Text>RAIN</Text>
-        </View>
-      </View>
+      <Image
+        resizeMode="cover"
+        style={{
+          width: 120,
+          height: 120,
+          borderRadius: 75,
+          overflow: "hidden",
+          // borderWidth: 2,
+          // borderColor: "red",
+          // position: "absolute",
+        }}
+        source={a.image}
+      />
+      <Text
+        style={{
+          color: "white",
+          textAlign: "center",
+          marginTop: 20,
+          fontSize: 15,
+          fontFamily: FONTS.regular,
+        }}
+      >
+        {a.id}
+      </Text>
     </View>
   );
 };

@@ -37,17 +37,4 @@ export default function App() {
   );
 }
 
-// <View style={{ flex: 1 }}>
-//       <Sleep />
-//       <StatusBar style="dark" />
-//     </View>
 
-// screenOptions={{ headerShown: false }}
-// initialRouteName="Meditate"
-// sceneContainerStyle={{
-//   backgroundColor: "#d1dfff",
-//   margin: 10,
-//   borderRadius: 20,
-//   style: { backgroundColor: '#ffffff', borderRadius: 30, margin: 24, height: 72, width: '90%' },
-//   labelStyle: { fontSize: 14 }
-// }}
